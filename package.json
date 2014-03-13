@@ -1,6 +1,6 @@
 {
   "name": "mongoose-api-query",
-  "version": "0.1.1pre",
+  "version": "0.1.2pre",
   "author": "Adam Jacob Becker <ad@mbecker.cc>",
   "description": "Given a Mongoose model and an array of URI params, construct a query for use in a search API.",
   "keywords": ["API", "mongoose", "search", "parameters"],

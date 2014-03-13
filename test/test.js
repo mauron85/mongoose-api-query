@@ -450,7 +450,6 @@ describe('mongoose-api-query', function(){
       });
     });
 
-
     describe('RegexpStringContainingNumber', function(){
       it('does a basic filter', function(done){
         browser.visit("http://localhost:3000/test1?name=AZ1", function (){
@@ -461,6 +460,24 @@ describe('mongoose-api-query', function(){
       });
     });
 
+
+    describe('SearchForNestedAttribute', function(){
+      it('does a basic filter', function(done){
+        browser.visit("http://localhost:3000/test1?nest.cookoo=y", function (){
+          hasMonster("AZ124584545");
+          hasMonsterCount(1);
+          done();
+        });
+      });
+    });
+
+    describe('SearchForNonExistingNestedAttribute', function(){
+      it('does a basic filter', function(done){
+        browser.visit("http://localhost:3000/test1?foo.bar=baz", function (){
+          done();
+        });
+      });
+    });
  });
 
 });

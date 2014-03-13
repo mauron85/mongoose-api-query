@@ -12,7 +12,10 @@ var monsterSchema = new mongoose.Schema({
     calories: Number
   })],
   loc: Array,
-  data: {}
+  data: {},
+  nest: {
+    cookoo: Boolean
+  }
 });
 
 monsterSchema.index({'loc':'2d'});
