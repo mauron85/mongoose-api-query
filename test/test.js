@@ -461,7 +461,7 @@ describe('mongoose-api-query', function(){
     });
 
 
-    describe('SearchForNestedAttribute', function(){
+    describe('SearchForNestedBoolean', function(){
       it('does a basic filter', function(done){
         browser.visit("http://localhost:3000/test1?nest.cookoo=y", function (){
           hasMonster("AZ124584545");
@@ -478,6 +478,17 @@ describe('mongoose-api-query', function(){
         });
       });
     });
+
+    describe('SearchForNestedString', function(){
+      it('does a basic filter', function(done){
+        browser.visit("http://localhost:3000/test1?nest.phoneNr=(857)", function (){
+          hasMonster("AZ124584545");
+          hasMonsterCount(1);
+          done();
+        });
+      });
+    });
+
  });
 
 });

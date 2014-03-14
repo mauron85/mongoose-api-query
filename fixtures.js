@@ -69,7 +69,8 @@ module.exports = [
   name: "AZ124584545",
   monster_object_id: "530088897c979cdb49475d9g",
   nest: {
-    cookoo: true
+    cookoo: true,
+    phoneNr: '+1 (857) 489-3788'
   }
 }
 

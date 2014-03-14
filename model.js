@@ -14,7 +14,8 @@ var monsterSchema = new mongoose.Schema({
   loc: Array,
   data: {},
   nest: {
-    cookoo: Boolean
+    cookoo: Boolean,
+    phoneNr: String
   }
 });
 
