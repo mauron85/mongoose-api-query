@@ -21,6 +21,7 @@ var hasMonstersInOrder = function (monster1, monster2) {
 };
 
 describe('mongoose-api-query', function(){
+  this.timeout(5000);
 
   it('without any query params, loads all monsters', function(done){
     browser.visit("http://localhost:3000/test1", function () {
@@ -484,6 +485,70 @@ describe('mongoose-api-query', function(){
         browser.visit("http://localhost:3000/test1?nest.phoneNr=(857)", function (){
           hasMonster("AZ124584545");
           hasMonsterCount(1);
+          done();
+        });
+      });
+    });
+
+    describe('SearchForDate', function(){
+      it('does a exact search on date', function(done){
+        browser.visit("http://localhost:3000/test1?born=2009-03-03T05:45:57.000Z", function (){
+          hasMonster("Biggie Smalls");
+          hasMonsterCount(1);
+          done();
+        });
+      });
+    });
+
+    describe('SearchForDate', function(){
+      it('does a search on date greater than', function(done){
+        browser.visit("http://localhost:3000/test1?born={gte}1456-11-23T15:25:57.000Z", function (){
+          hasMonsterCount(3);
+          done();
+        });
+      });
+    });
+
+    describe('SearchForDate', function(){
+      it('does a search on date greater than', function(done){
+        browser.visit("http://localhost:3000/test1?born={gt}1456-11-23T15:25:57.000Z", function (){
+          hasMonsterCount(2);
+          done();
+        });
+      });
+    });
+
+    describe('SearchForDate', function(){
+      it('does a search on date less or equal than', function(done){
+        browser.visit("http://localhost:3000/test1?born={lte}1456-11-23T15:25:57.000Z", function (){
+          hasMonsterCount(3);
+          done();
+        });
+      });
+    });
+
+    describe('SearchForDate', function(){
+      it('does a search on date less than', function(done){
+        browser.visit("http://localhost:3000/test1?born={lt}1456-11-23T15:25:57.000Z", function (){
+          hasMonsterCount(2);
+          done();
+        });
+      });
+    });
+
+    describe('SearchForDate', function(){
+      it('does a search between two dates', function(done){
+        browser.visit("http://localhost:3000/test1?born={lt}2009-03-03T05:45:57.000Z{gt}0901-05-23T13:31:51.000Z", function (){
+          hasMonsterCount(2);
+          done();
+        });
+      });
+    });
+
+    describe('SearchForDate', function(){
+      it('does a search between two dates including', function(done){
+        browser.visit("http://localhost:3000/test1?born={lte}2009-03-03T05:45:57.000Z{gte}0901-05-23T13:31:51.000Z", function (){
+          hasMonsterCount(4);
           done();
         });
       });

@@ -127,6 +127,13 @@ This is a list of the optional search operators you can use for each SchemaType.
 - `latlon={near}37,-122,5` Near 37,-122, with a 5 mile max radius
 - `latlon={near}37,-122` Near 37,-122, no radius limit. Automatically sorts by distance
 
+#### Dates
+
+- `date={gt}1999-12-12T13:33:00.000Z` - > 1999-12-12T13:33:00.000Z
+- `date={gte}1999-12-12T13:33:00.000Z` - >= 1999-12-12T13:33:00.000Z
+- `date={lt}1999-12-12T13:33:00.000Z` - < 1999-12-12T13:33:00.000Z
+- `date={lte}1999-12-12T13:33:00.000Z` - <=1999-12-12T13:33:00.000Z
+- `date={gt}1999-12-12T13:33:00.000Z{lt}2014-01-01T01:01:01.000Z` - between 1999-12-12T13:33:00.000Z and 2014-01-01T01:01:01.000Z
 
 
 ## To run tests

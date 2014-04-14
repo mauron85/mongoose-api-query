@@ -16,7 +16,8 @@ var monsterSchema = new mongoose.Schema({
   nest: {
     cookoo: Boolean,
     phoneNr: String
-  }
+  },
+  born: Date
 });
 
 monsterSchema.index({'loc':'2d'});
