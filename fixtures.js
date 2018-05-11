@@ -12,7 +12,12 @@ module.exports = [
     mood: "sad",
     MODE: "kill"
   },
-  born: "1456-11-23T15:25:57.000Z"
+  born: "1456-11-23T15:25:57.000Z",
+  minion: {
+    name: "Groomy",
+    evil: true,
+    birthday: "1256-11-23T15:25:57.000Z"
+  }
 },
 
 {
@@ -25,7 +30,12 @@ module.exports = [
   data: {
     mood: "ecstatic"
   },
-  born: "0456-04-08T09:21:21.000Z"
+  born: "0456-04-08T09:21:21.000Z",
+  minion: {
+    name: "Tinkerman",
+    evil: false,
+    birthday: "1056-11-23T15:25:57.000Z"
+  }
 },
 
 {
@@ -38,7 +48,12 @@ module.exports = [
     hands: "14"
   },
   loc: [38.9,-77.2],
-  born: "1981-09-22T11:25:46.000Z"
+  born: "1981-09-22T11:25:46.000Z",
+  minion: {
+    name: "Fishy",
+    evil: true,
+    birthday: "1656-11-23T15:25:57.000Z"
+  }
 },
 
 {
@@ -48,7 +63,12 @@ module.exports = [
   eats_humans: false,
   foods: [{name: "Kale", vegetarian: true, calories: 20}],
   loc: [38.9,-77],
-  born: "0901-05-23T13:31:51.000Z"
+  born: "0901-05-23T13:31:51.000Z",
+  minion: {
+    name: "Slither",
+    evil: false,
+    birthday: "1856-11-23T15:25:57.000Z"
+  }
 },
 
 {
@@ -58,7 +78,12 @@ module.exports = [
   eats_humans: false,
   foods: [{name: "Arms", vegetarian: false, calories: 300}],
   loc: [38.87,-77.04],
-  born: "2009-03-03T05:45:57.000Z"
+  born: "2009-03-03T05:45:57.000Z",
+  minion: {
+    name: "Spyral",
+    evil: true,
+    birthday: "1556-11-23T15:25:57.000Z"
+  }
 },
 
 {
@@ -72,7 +97,9 @@ module.exports = [
 
 {
   name: "AZ124584545",
-  monster_object_id: "530088897c979cdb49475d9g",
+  monster_identification_no: 9420123,
+  eats_humans: false,
+  monster_object_id: "530088897c979cdb49475dA0",
   nest: {
     cookoo: true,
     phoneNr: '+1 (857) 489-3788'
