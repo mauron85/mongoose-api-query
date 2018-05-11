@@ -9,7 +9,7 @@ var express = require('express')
   , path = require('path')
   , mongoose = require('mongoose');
 
-global.DB = mongoose.createConnection('localhost', 'mongoose-api-query');
+mongoose.connect('mongodb://localhost/test');
 
 var app = express();
 

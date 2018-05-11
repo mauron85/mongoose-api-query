@@ -33,6 +33,7 @@ describe('mongoose-api-query', function(){
   it('does case-insensitive searching', function(done){
     browser.visit("http://localhost:3000/test1?name=people", function() {
       hasMonster("Big Purple People Eater");
+      hasMonsterCount(1);
       done();
     });
   });
@@ -122,15 +123,8 @@ describe('mongoose-api-query', function(){
   });
 
   it('handles paging of results', function(done){
-    browser.visit("http://localhost:3000/test1?page=2&per_page=4", function () {
+    browser.visit("http://localhost:3000/test1?per_page=4&page=2", function () {
       hasMonsterCount(3);
-      done();
-    });
-  });
-
-  it('defaults to 10 results per page', function(done){
-    browser.visit("http://localhost:3000/test1?page=1", function () {
-      hasMonsterCount(7);
       done();
     });
   });
@@ -236,7 +230,8 @@ describe('mongoose-api-query', function(){
     it('returns correct results for {gt}', function(done){
       browser.visit("http://localhost:3000/test1?monster_identification_no={gt}100439", function (){
         hasMonster("Biggie Smalls the 2nd");
-        hasMonsterCount(1);
+        hasMonster("AZ124584545");
+        hasMonsterCount(2);
         done();
       });
     });
@@ -245,7 +240,8 @@ describe('mongoose-api-query', function(){
       browser.visit("http://localhost:3000/test1?monster_identification_no={gte}100439", function (){
         hasMonster("Biggie Smalls");
         hasMonster("Biggie Smalls the 2nd");
-        hasMonsterCount(2);
+        hasMonster("AZ124584545");
+        hasMonsterCount(3);
         done();
       });
     });
@@ -377,7 +373,8 @@ describe('mongoose-api-query', function(){
         hasMonster("Frankenstein");
         hasMonster("Biggie Smalls");
         hasMonster("Biggie Smalls the 2nd");
-        hasMonsterCount(3);
+        hasMonster("AZ124584545");
+        hasMonsterCount(4);
         done();
       });
     });
@@ -554,6 +551,32 @@ describe('mongoose-api-query', function(){
       });
     });
 
- });
+    describe('NonArraySubSchema', function(){
+      it('does a simple filter by name', function(done){
+        browser.visit("http://localhost:3000/test1?minion.name=Groomy", function (){
+          hasMonsterCount(1);
+          hasMonster("Big Purple People Eater");
+          done();
+        });
+      });
 
+      it('does a filter by boolean', function(done){
+        browser.visit("http://localhost:3000/test1?minion.evil=true", function (){
+          hasMonsterCount(3);
+          hasMonster("Big Purple People Eater");
+          hasMonster("Clay Johnson");
+          hasMonster("Biggie Smalls");
+          done();
+        });
+      });
+
+      it('does a search between two dates including', function(done){
+        browser.visit("http://localhost:3000/test1?minion.name=Groomy", function (){
+          hasMonsterCount(1);
+          hasMonster("Big Purple People Eater");
+          done();
+        });
+      });
+    })
+  });
 });

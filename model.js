@@ -17,10 +17,15 @@ var monsterSchema = new mongoose.Schema({
     cookoo: Boolean,
     phoneNr: String
   },
-  born: Date
+  born: Date,
+  minion: new mongoose.Schema({
+    name: String,
+    evil: Boolean,
+    birthday: Date
+  })
 });
 
 monsterSchema.index({'loc':'2d'});
 monsterSchema.plugin(mongooseApiQuery);
 
-module.exports = DB.model('Monster', monsterSchema);
+module.exports = mongoose.model('Monster', monsterSchema);
